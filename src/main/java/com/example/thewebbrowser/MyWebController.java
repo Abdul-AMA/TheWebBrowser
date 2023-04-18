@@ -1,5 +1,7 @@
 package com.example.thewebbrowser;
 
+import javafx.beans.Observable;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -8,12 +10,19 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebHistory;
 import javafx.scene.web.WebView;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class MyWebController implements Initializable {
+
+    public Button buttonForward;
+    ArrayList<String > history = new ArrayList<String>();
+    private String homepage;
+    private static int tabs;
     @FXML
     private WebView webView;
     private WebEngine webEngine;
@@ -26,38 +35,68 @@ public class MyWebController implements Initializable {
     @FXML
     public Button buttonHome;
     public Button buttonLoad;
-    public Button buttonReload;
     public TextField textUrl;
     public Label labelSearch;
     public TextField textSearch;
-    public Label labelURL;
-    @FXML
-    private Label label1;
+
 
     @FXML
-    protected void onReload(ActionEvent event) {
 
-        System.out.println("hello");
-    }
-    @FXML
     protected void onLoad() {
+        if (textUrl.getText().isEmpty()) {
+            webEngine.load(textUrl.getText());
+        } else if (textUrl.getText().contains("https://")){
+            webEngine.load(textUrl.getText());
+        }else {
+            textUrl.setText("https://"+ textUrl.getText());
+            webEngine.load(textUrl.getText());
 
-        webEngine.load("https://www.youtube.com/");
+        }
+        history.add(textUrl.getText());
+        tabs++;
+        textSearch.setText("");
     }
     @FXML
-    protected void onHome(ActionEvent event) {
-
-        System.out.println("hello");
+    protected void onHome() {
+        textUrl.setText(homepage);
+        onLoad();
     }
-    @FXML
-    protected void onBack(ActionEvent event) {
 
-        System.out.println("hello");
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         webEngine = webView.getEngine();
+        homepage = "www.google.com";
         onLoad();
     }
+
+    public void onSearch() {
+        textUrl.setText("www.google.com/search?q="+textSearch.getText());
+        onLoad();
+    }
+    @FXML
+    public void onFroward( ) {
+
+    }
+
+    @FXML
+    protected void onBack( ) {
+
+    }
+
+    public void onReload( ) {
+        textUrl.setText(webEngine.getLocation());
+        onLoad();
+    }
+
+
+//    public void zoomIn() {
+//        webView.setZoom(1.25);
+//    }
+//
+//    public void zoomOut() {
+//        webView.setZoom(0.75);
+//    }
+
+
 }

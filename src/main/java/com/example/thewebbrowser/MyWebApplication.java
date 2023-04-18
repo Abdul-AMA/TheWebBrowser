@@ -14,6 +14,7 @@ public class MyWebApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load(),1280,800);
         stage.setTitle("The Halal Net");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 
