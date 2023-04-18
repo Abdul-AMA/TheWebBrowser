@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="628.0"
+            prefWidth="805.0" stylesheets="@MyCss.css" xmlns="http://javafx.com/javafx/19"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.webbrowser.BrowserController">
+    <children>
+        <Button fx:id="buttonBack" layoutX="14.0" layoutY="26.0" mnemonicParsing="false" text="Back" />
+        <Button fx:id="buttonReload" layoutX="61.0" layoutY="14.0" mnemonicParsing="false" onAction="#onReload" prefHeight="49.0" prefWidth="54.0" style="-fx-shape: M10 7a7 7 0 0 0 12 4.9v.1c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2h.1A6               .979 6.979 0 0 0 10 7zm-6 5a8 8 0 0 0 15.062 3.762A9 9 0 0 1 8.238 4.938 7.999 7.999 0 0 0 4 12z;" styleClass="buttonHeart" stylesheets="@MyCss.css" textAlignment="CENTER">
+            <font>
+                <Font size="5.0" />
+            </font></Button>
+        <Button fx:id="buttonHome" layoutX="122.0" layoutY="26.0" mnemonicParsing="false" text="Home" />
+        <WebView layoutY="70.0" prefHeight="558.0" prefWidth="805.0" />
+    </children>
