@@ -19,10 +19,9 @@ import java.util.ResourceBundle;
 
 public class MyWebController implements Initializable {
 
+    private WebHistory webHistory;
     public Button buttonForward;
-    ArrayList<String > history = new ArrayList<String>();
     private String homepage;
-    private static int tabs;
     @FXML
     private WebView webView;
     private WebEngine webEngine;
@@ -52,8 +51,6 @@ public class MyWebController implements Initializable {
             webEngine.load(textUrl.getText());
 
         }
-        history.add(textUrl.getText());
-        tabs++;
         textSearch.setText("");
     }
     @FXML
@@ -77,10 +74,17 @@ public class MyWebController implements Initializable {
     @FXML
     public void onFroward( ) {
 
-    }
+        webHistory = webEngine.getHistory();
+        ObservableList<WebHistory.Entry> entries = webHistory.getEntries();
+        webHistory.go(+1);
+        textUrl.setText(webEngine.getLocation());    }
 
     @FXML
     protected void onBack( ) {
+        webHistory = webEngine.getHistory();
+        ObservableList<WebHistory.Entry> entries = webHistory.getEntries();
+        webHistory.go(-1);
+        textUrl.setText(webEngine.getLocation());
 
     }
 
@@ -89,14 +93,6 @@ public class MyWebController implements Initializable {
         onLoad();
     }
 
-
-//    public void zoomIn() {
-//        webView.setZoom(1.25);
-//    }
-//
-//    public void zoomOut() {
-//        webView.setZoom(0.75);
-//    }
 
 
 }
