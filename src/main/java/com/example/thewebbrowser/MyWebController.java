@@ -18,12 +18,15 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebHistory;
 import javafx.scene.web.WebView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -57,6 +60,7 @@ public class MyWebController implements Initializable {
     public TextField textUrl;
     public Label labelSearch;
     public TextField textSearch;
+
 
 
     @FXML
@@ -136,4 +140,8 @@ public class MyWebController implements Initializable {
         primaryStage.setResizable(false);
 
     }
+
+
+
+
 }

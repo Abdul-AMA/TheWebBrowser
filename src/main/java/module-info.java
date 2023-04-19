@@ -12,6 +12,7 @@ module com.example.thewebbrowser {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
     requires javafx.media;
+    requires java.desktop;
 
     opens com.example.thewebbrowser to javafx.fxml;
     exports com.example.thewebbrowser;
