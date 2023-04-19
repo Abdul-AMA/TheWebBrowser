@@ -60,22 +60,12 @@ public class SettingsView implements Initializable {
     public void onDark() {
         darkModeLabel.setText("idk how to make it 😂😂");
     }
-    MediaPlayer mediaPlayer;
     @FXML
     public void onNot() {
-        String fileName = "song.mp3";
-        playHitSound(fileName);
+
     }
 
 
-    private void playHitSound(String fileName){
-        String path = getClass().getResource(fileName).getPath();
-        Media media = new Media(new File(path).toURI().toString());
-        mediaPlayer = new MediaPlayer(media);
-        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-        mediaPlayer.setVolume(70);
-        mediaPlayer.play();
-    }
 }
 
 
