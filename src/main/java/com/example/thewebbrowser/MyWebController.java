@@ -1,5 +1,6 @@
 package com.example.thewebbrowser;
 
+import javafx.application.Platform;
 import javafx.beans.Observable;
 import javafx.beans.binding.Bindings;
 import javafx.beans.value.ChangeListener;
@@ -136,7 +137,7 @@ public class MyWebController implements Initializable {
         primaryStage.setTitle("settings");
         primaryStage.setScene(scene);
         primaryStage.show();
-        primaryStage.getIcons().add(new Image("E:\\Studying\\java\\TheWebBrowser\\src\\main\\resources\\a.png"));
+        primaryStage.getIcons().add(new Image(new File("\\src\\main\\resources\\com\\example\\thewebbrowser\\a.png").getAbsolutePath()));
         primaryStage.setResizable(false);
         primaryStage.initModality(Modality.WINDOW_MODAL);
 

@@ -71,7 +71,7 @@ public class SettingsView implements Initializable {
         media = new Media(new File("src\\main\\resources\\com\\example\\thewebbrowser\\oh.mp3").toURI().toString());
         mediaPlayer = new MediaPlayer(media);
         mediaPlayer.play();
-        JOptionPane.showMessageDialog(null,"💟 صلي على النبي محمد 💟", "Warning", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null,"💟 صلي على النبي محمد 💟", "", JOptionPane.INFORMATION_MESSAGE);
     }
 
 
