@@ -68,9 +68,10 @@ public class SettingsView implements Initializable {
     }
     @FXML
     public void onNot() {
-        media = new Media(new File("E:\\Studying\\java\\TheWebBrowser\\src\\main\\resources\\com\\example\\thewebbrowser\\oh.mp3").toURI().toString());
+        media = new Media(new File("src\\main\\resources\\com\\example\\thewebbrowser\\oh.mp3").toURI().toString());
         mediaPlayer = new MediaPlayer(media);
         mediaPlayer.play();
+        JOptionPane.showMessageDialog(null,"💟 صلي على النبي محمد 💟", "Warning", JOptionPane.INFORMATION_MESSAGE);
     }
 
 

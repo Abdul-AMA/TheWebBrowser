@@ -138,6 +138,7 @@ public class MyWebController implements Initializable {
         primaryStage.show();
         primaryStage.getIcons().add(new Image("E:\\Studying\\java\\TheWebBrowser\\src\\main\\resources\\a.png"));
         primaryStage.setResizable(false);
+        primaryStage.initModality(Modality.WINDOW_MODAL);
 
     }
 
