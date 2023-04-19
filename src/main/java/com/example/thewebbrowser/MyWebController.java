@@ -1,27 +1,42 @@
 package com.example.thewebbrowser;
 
 import javafx.beans.Observable;
+import javafx.beans.binding.Bindings;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Worker;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebHistory;
 import javafx.scene.web.WebView;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class MyWebController implements Initializable {
+    public Button buttonSettings;
+    @FXML
+    private ProgressBar progressBar;
 
     private WebHistory webHistory;
     public Button buttonForward;
-    private String homepage;
+    public static String homepage;
     @FXML
     private WebView webView;
     private WebEngine webEngine;
@@ -31,6 +46,11 @@ public class MyWebController implements Initializable {
     public AnchorPane base;
     @FXML
     public Button buttonBack;
+
+    public void setHomepage(String homepage) {
+        this.homepage = homepage;
+    }
+
     @FXML
     public Button buttonHome;
     public Button buttonLoad;
@@ -42,16 +62,12 @@ public class MyWebController implements Initializable {
     @FXML
 
     protected void onLoad() {
-        if (textUrl.getText().isEmpty()) {
-            webEngine.load(textUrl.getText());
-        } else if (textUrl.getText().contains("https://")){
-            webEngine.load(textUrl.getText());
-        }else {
+        if (!textUrl.getText().contains("https://") && !textUrl.getText().isEmpty()) {
             textUrl.setText("https://"+ textUrl.getText());
-            webEngine.load(textUrl.getText());
-
         }
+        webEngine.load(textUrl.getText());
         textSearch.setText("");
+
     }
     @FXML
     protected void onHome() {
@@ -63,9 +79,24 @@ public class MyWebController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         webEngine = webView.getEngine();
+        final ProgressBar loading = progressBar;
+        loading.setVisible(true);
         homepage = "www.google.com";
         onLoad();
+
+        // this code is for the loading and idk how it works :D
+        //................................................................
+        loading.progressProperty().bind(webEngine.getLoadWorker().progressProperty());
+        loading.visibleProperty().bind(
+                Bindings.when(loading.progressProperty().lessThan(0).or(loading.progressProperty().isEqualTo(1)))
+                        .then(false)
+                        .otherwise(true)
+        );
+        loading.managedProperty().bind(loading.visibleProperty());
+        loading.setMaxWidth(Double.MAX_VALUE);
+        //................................................................
     }
+
 
     public void onSearch() {
         textUrl.setText("www.google.com/search?q="+textSearch.getText());
@@ -87,12 +118,22 @@ public class MyWebController implements Initializable {
         textUrl.setText(webEngine.getLocation());
 
     }
-
+    @FXML
     public void onReload( ) {
         textUrl.setText(webEngine.getLocation());
         onLoad();
     }
 
 
+    public void onSettings( ) throws IOException {
+        Parent root =  FXMLLoader.load(getClass().getResource("settings-view.fxml"));
+        Scene scene = new Scene(root,300,250);
+        Stage primaryStage = new Stage();
+        primaryStage.setTitle("settings");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+        primaryStage.getIcons().add(new Image("E:\\Studying\\java\\TheWebBrowser\\src\\main\\resources\\a.png"));
+        primaryStage.setResizable(false);
 
+    }
 }
