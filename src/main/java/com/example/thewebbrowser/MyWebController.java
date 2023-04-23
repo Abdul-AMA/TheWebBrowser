@@ -1,12 +1,7 @@
 package com.example.thewebbrowser;
 
-import javafx.application.Platform;
-import javafx.beans.Observable;
 import javafx.beans.binding.Bindings;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
-import javafx.concurrent.Worker;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,8 +14,6 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebHistory;
 import javafx.scene.web.WebView;
@@ -92,11 +85,11 @@ public class MyWebController implements Initializable {
         // this code is for the loading and idk how it works :D
         //................................................................
         loading.progressProperty().bind(webEngine.getLoadWorker().progressProperty());
-        loading.visibleProperty().bind(
-                Bindings.when(loading.progressProperty().lessThan(0).or(loading.progressProperty().isEqualTo(1)))
+        loading.visibleProperty().bind(Bindings.when(loading.progressProperty().lessThan(0).or(loading.progressProperty().isEqualTo(1)))
                         .then(false)
                         .otherwise(true)
         );
+        //................................................................
         loading.managedProperty().bind(loading.visibleProperty());
         loading.setMaxWidth(Double.MAX_VALUE);
         //................................................................
@@ -135,14 +128,13 @@ public class MyWebController implements Initializable {
         Scene scene = new Scene(root,300,250);
         Stage primaryStage = new Stage();
         primaryStage.setTitle("settings");
+        primaryStage.initModality(Modality.APPLICATION_MODAL);
         primaryStage.setScene(scene);
         primaryStage.show();
-        primaryStage.getIcons().add(new Image(new File("\\src\\main\\resources\\com\\example\\thewebbrowser\\a.png").getAbsolutePath()));
+        primaryStage.getIcons().add(new Image(new File("src/main/resources/com/example/thewebbrowser/a.png").getAbsolutePath()));
         primaryStage.setResizable(false);
-        primaryStage.initModality(Modality.WINDOW_MODAL);
 
     }
-
 
 
 
