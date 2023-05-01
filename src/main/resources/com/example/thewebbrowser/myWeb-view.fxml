@@ -10,18 +10,20 @@
 
 <AnchorPane fx:id="base" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" stylesheets="@MyCss.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.thewebbrowser.MyWebController">
     <children>
-        <WebView fx:id="webView" layoutX="-1.0" layoutY="54.0" prefHeight="745.0" prefWidth="1280.0" />
-        <Button fx:id="buttonLoad" layoutX="129.0" layoutY="9.0" mnemonicParsing="false" onAction="#onReload" prefHeight="35.0" prefWidth="35.0" style="-fx-shape: M10 7a7 7 0 0 0 12 4.9v.1c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2h.1A6               .979 6.979 0 0 0 10 7zm-6 5a8 8 0 0 0 15.062 3.762A9 9 0 0 1 8.238 4.938 7.999 7.999 0 0 0 4 12z;" styleClass="buttonHeart" stylesheets="@MyCss.css" textAlignment="CENTER">
+        <WebView fx:id="webView" layoutX="1.0" layoutY="45.0" prefHeight="725.0" prefWidth="1280.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="45.0" />
+        <Button fx:id="buttonLoad" layoutX="129.0" layoutY="6.0" mnemonicParsing="false" onAction="#onReload" prefHeight="35.0" prefWidth="35.0" style="-fx-shape: M10 7a7 7 0 0 0 12 4.9v.1c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2h.1A6               .979 6.979 0 0 0 10 7zm-6 5a8 8 0 0 0 15.062 3.762A9 9 0 0 1 8.238 4.938 7.999 7.999 0 0 0 4 12z;" styleClass="buttonHeart" stylesheets="@MyCss.css" textAlignment="CENTER">
             <font>
                 <Font size="5.0" />
             </font></Button>
-        <Button fx:id="buttonHome" layoutX="85.0" layoutY="10.0" mnemonicParsing="false" onAction="#onHome" prefHeight="30.0" prefWidth="30.0" styleClass="buttonHome" stylesheets="@MyCss.css" />
-      <Button fx:id="buttonForward" layoutX="42.0" layoutY="11.0" mnemonicParsing="false" onAction="#onFroward" prefHeight="30.0" prefWidth="30.0" styleClass="buttonForward" />
-        <Button fx:id="buttonBack" layoutX="6.0" layoutY="11.0" mnemonicParsing="false" onAction="#onBack" prefHeight="30.0" prefWidth="30.0" styleClass="buttonBackward" />
-      <TextField fx:id="textUrl" layoutX="173.0" layoutY="14.0" onAction="#onLoad" prefHeight="25.0" prefWidth="736.0" />
-      <Label fx:id="labelSearch" layoutX="915.0" layoutY="19.0" prefWidth="49.0" text="Search" />
-      <TextField fx:id="textSearch" layoutX="964.0" layoutY="15.0" onAction="#onSearch" prefHeight="25.0" prefWidth="265.0" promptText="What do you want to know ?" />
-      <ProgressBar fx:id="progressBar" layoutY="45.0" prefHeight="10.0" prefWidth="1280.0" />
-      <Button fx:id="buttonSettings" layoutX="1241.0" layoutY="11.0" mnemonicParsing="false" onAction="#onSettings" prefHeight="30.0" prefWidth="30.0" styleClass="buttonSettings" />
+        <Button fx:id="buttonHome" layoutX="85.0" layoutY="7.0" mnemonicParsing="false" onAction="#onHome" prefHeight="30.0" prefWidth="30.0" styleClass="buttonHome" stylesheets="@MyCss.css" />
+      <Button fx:id="buttonForward" layoutX="42.0" layoutY="9.0" mnemonicParsing="false" onAction="#onFroward" prefHeight="30.0" prefWidth="30.0" styleClass="buttonForward" />
+        <Button fx:id="buttonBack" layoutX="6.0" layoutY="9.0" mnemonicParsing="false" onAction="#onBack" prefHeight="30.0" prefWidth="30.0" styleClass="buttonBackward" />
+      <TextField fx:id="textUrl" layoutX="173.0" layoutY="14.0" onAction="#onLoad" prefHeight="25.0" prefWidth="736.0" AnchorPane.leftAnchor="173.0" AnchorPane.rightAnchor="371.0" AnchorPane.topAnchor="14.0" />
+      <Label fx:id="labelSearch" layoutX="915.0" layoutY="19.0" prefWidth="49.0" text="Search" AnchorPane.rightAnchor="316.0" />
+      <TextField fx:id="textSearch" layoutX="964.0" layoutY="15.0" onAction="#onSearch" prefHeight="25.0" prefWidth="257.0" promptText="What do you want to know ?" AnchorPane.rightAnchor="59.0" />
+      <ProgressBar fx:id="progressBar" layoutY="45.0" prefHeight="10.0" prefWidth="1280.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <Button fx:id="buttonSettings" layoutX="1236.0" layoutY="8.0" mnemonicParsing="false" onAction="#onSettings" prefHeight="30.0" prefWidth="30.0" styleClass="buttonSettings" AnchorPane.rightAnchor="14.0" />
+      <Label alignment="CENTER" layoutX="1098.0" layoutY="778.0" prefHeight="17.0" prefWidth="168.0" text="all rights reserved © 2023" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="14.0" />
+      <Label layoutX="9.0" layoutY="778.0" prefHeight="17.0" prefWidth="311.0" text="contact us: abdamapro22@gmail.com | +972595120845" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="9.0" />
     </children>
 </AnchorPane>

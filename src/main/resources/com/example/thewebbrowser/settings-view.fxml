@@ -16,7 +16,10 @@
       <Label fx:id="labelCurrentSearch" layoutX="131.0" layoutY="72.0" prefHeight="17.0" prefWidth="103.0" stylesheets="@MyCss.css" />
       <Button fx:id="apply" layoutX="20.0" layoutY="179.0" mnemonicParsing="false" onAction="#onApply" prefHeight="31.0" prefWidth="38.0" styleClass="buttonApply" stylesheets="@MyCss.css" />
       <Label layoutX="64.0" layoutY="183.0" prefHeight="23.0" prefWidth="38.0" text="Apply" />
-      <Label fx:id="darkModeLabel" layoutX="122.0" layoutY="16.0" prefHeight="17.0" prefWidth="163.0" />
+      <Label fx:id="darkModeLabel" layoutX="131.0" layoutY="11.0" prefHeight="38.0" prefWidth="154.0" textAlignment="CENTER">
+         <font>
+            <Font size="11.0" />
+         </font></Label>
       <Button fx:id="dont" layoutX="247.0" layoutY="210.0" mnemonicParsing="false" onAction="#onNot" prefHeight="17.0" prefWidth="38.0" text="🚫" />
       <Label layoutX="147.0" layoutY="210.0" text="don't click 👉">
          <font>

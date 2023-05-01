@@ -64,14 +64,22 @@ public class SettingsView implements Initializable {
     }
 
     public void onDark() {
-        darkModeLabel.setText("idk how to make it 😂😂");
+        darkModeLabel.setText("لماذا الوضع المظلم" + "\n" +"والله اخرجنا من الظلمات الى النور");
     }
     @FXML
     public void onNot() {
         media = new Media(new File("src\\main\\resources\\com\\example\\thewebbrowser\\oh.mp3").toURI().toString());
         mediaPlayer = new MediaPlayer(media);
         mediaPlayer.play();
-        JOptionPane.showMessageDialog(null,"💟 صلي على النبي محمد 💟", "", JOptionPane.INFORMATION_MESSAGE);
+        int x = JOptionPane.showConfirmDialog(null, "هل صليت على النبي محمد اليوم؟", "", JOptionPane.YES_NO_OPTION);
+        if (x ==0 ){
+            JOptionPane.showMessageDialog(null,"💟 صلي على النبي محمد كمان 💟", "", JOptionPane.INFORMATION_MESSAGE);
+        } else if (x == 1) {
+            JOptionPane.showMessageDialog(null,"💟 صلي على النبي محمد 💟", "", JOptionPane.INFORMATION_MESSAGE);
+        } else if (x == -1) {
+            JOptionPane.showMessageDialog(null,"💟 صلي على النبي محمد ولا تتهرب 💟", "", JOptionPane.INFORMATION_MESSAGE);
+
+        }
     }
 
 
